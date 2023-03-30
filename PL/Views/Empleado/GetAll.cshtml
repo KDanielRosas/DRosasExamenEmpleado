@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/Empleado/Scripts.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Empleados</h2>
+        </div>
+        <div class="col" style="text-align:end">
+            <a class="btn btn-success" onclick="MostrarModal()">Agregar</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="table-responsive">
+        <table id="tblEmpleados" class="table align-middle table-bordered table-light" border="1">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Editar</th>
+                    <th class="visually-hidden">IdEmpleado</th>
+                    <th class="text-center" scope="col">NumeroNomina</th>
+                    <th class="text-center" scope="col">Nombre</th>
+                    <th class="text-center" scope="col">ApellidoPaterno</th>
+                    <th class="text-center" scope="col">ApellidoMaterno</th>
+                    <th class="visually-hidden">IdEstado</th>
+                    <th class="text-center" scope="col">Estado</th>
+                    <th class="text-center" scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div> <!-- container -->
+
+
+<!-- Modal Update -->
+
+<div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Actualizar Empleado</h4>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtIdEmpleado" placeholder="IdEmpleado" disabled="disabled" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Numero de Nomina</label>
+                        <input type="text" class="form-control" id="txtNumeroNomina" placeholder="Numero de Nomina" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Apellido Paterno</label>
+                        <input type="text" class="form-control" id="txtApPaterno" placeholder="Apellido Paterno" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Apellido Materno</label>
+                        <input type="text" class="form-control" id="txtApMaterno" placeholder="Apellido Materno" />
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select name="estado" id="ddlEstado"></select>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnEnviar" onclick="Enviar()">Enviar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Message -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>
+                                Acción completada con éxito
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" value="Regresar" data-dismiss="modal">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
