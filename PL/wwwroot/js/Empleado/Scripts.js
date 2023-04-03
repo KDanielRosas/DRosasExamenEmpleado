@@ -14,8 +14,8 @@ function GetAll() {
             $.each(result.objects, function (i, empleado) {
                 var filas =
                     "<tr>" + "<td class='text-center'>" +
-                    '<a class="btn btn-warning" href="#" onclick="GetById(' + empleado.idEmpleado + ')">' +
-                    '<i class="fa-regular fa-pen-to-square"></i></a></td>' +
+                    "<a class='btn btn-warning' href='#' onclick='GetById(" + empleado.idEmpleado + ")'>" +
+                    "<i class='fa-regular fa-pen-to-square'></i></a></td>" +
                     "<td id='IdEmpleado' class='visually-hidden'>" + empleado.idEmpleado + "</td>" + 
                     "<td id='NumeroNomina' class='text-center'>" + empleado.numeroNomina + "</td>" + 
                     "<td id='Nombre' class='text-center'>" + empleado.nombre + "</td>" +
@@ -51,13 +51,12 @@ function Add(empleado) {
             }          
         }),
         success: function (result) {
-            alert('Registro exitoso');
-            $('#myModal').modal();
+            $('#myModal').modal('show');
             $('#ModalForm').modal('hide');
             GetAll();
         },
         error: function (result) {
-            alert('Error al agregar el registro: ');
+            alert('Error al agregar el registro.');
         }
     });
 };
@@ -70,7 +69,6 @@ function Update(empleado) {
         dataType: 'json',
         data: JSON.stringify({
             IdEmpleado: empleado.IdEmpleado,
-            NumeroNomina: empleado.NumeroNomina,
             Nombre: empleado.Nombre,
             ApellidoPaterno: empleado.ApellidoPaterno,
             ApellidoMaterno: empleado.ApellidoMaterno,
@@ -79,10 +77,10 @@ function Update(empleado) {
             }
         }),
         success: function (result) {
-            alert('El registro se actualizó exitosamente');
-            $('#myModal').modal();
-            $('#ModalForm').modal('hide');
             GetAll();
+            $('#myModal').modal('show');
+            $('#ModalForm').modal('hide');
+            
         },
         error: function (result) {
             alert('Error al agregar el registro.');

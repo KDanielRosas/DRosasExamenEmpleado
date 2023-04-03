@@ -29,7 +29,7 @@ public partial class DrosasExamenEmpleadoContext : DbContext
         {
             entity.HasKey(e => e.IdEmpleado).HasName("PK__Empleado__CE6D8B9EB3B05A47");
 
-            entity.ToTable("Empleado");
+            entity.ToTable("Empleado", tb => tb.HasTrigger("NumeroNomina"));
 
             entity.Property(e => e.ApellidoMaterno)
                 .HasMaxLength(100)

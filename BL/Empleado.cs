@@ -12,7 +12,7 @@ namespace BL
 			{
 				using (DrosasExamenEmpleadoContext context = new())
 				{
-					int query = context.Database.ExecuteSqlRaw($"EmpleadoAdd '{empleado.NumeroNomina}'," +
+					int query = context.Database.ExecuteSqlRaw($"EmpleadoAdd " +
 						$"'{empleado.Nombre}', '{empleado.ApellidoPaterno}', '{empleado.ApellidoMaterno}'," +
 						$"{empleado.Estado.IdEstado}");
 
@@ -64,7 +64,7 @@ namespace BL
 				using (DrosasExamenEmpleadoContext context = new())
 				{
 					int query = context.Database.ExecuteSqlRaw($"EmpleadoUpdate {empleado.IdEmpleado}, " +
-						$"'{empleado.NumeroNomina}', '{empleado.Nombre}', '{empleado.ApellidoPaterno}'," +
+						$"'{empleado.Nombre}', '{empleado.ApellidoPaterno}'," +
 						$"'{empleado.ApellidoMaterno}', {empleado.Estado.IdEstado}");
 
                     if (query > 0) { result.Correct = true; }
